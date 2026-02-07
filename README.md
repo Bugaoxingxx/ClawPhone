@@ -3,7 +3,7 @@ I recently started running OpenClaw on a $25 Android smartphone to have an isola
 
 There were  a few tweaks I had to make, but eventually got it working reliably and now it just runs in the background inside termux on a tmux session and I can interact with it over Discord and use it like a normal OpenClaw agent and also do phone hardware tasks if needed. It's a cool formfactor for it to run on, very cheap way to get started with OpenClaw, and it's isolated and mobile, you can easily bring it with you anywhere.
 
-You can get the moto g 2025 perepaid smartphone in the US for $30 on [Walmart.com](https://www.walmart.com/ip/Straight-Talk-Motorola-Moto-g-2025-5G-64GB-Blue-Prepaid-Smartphone-Locked-to-Straight-Talk/14552506783)
+You can get the moto g 2025 perepaid smartphone in the US for $30 on [Walmart.com](https://www.walmart.com/ip/Straight-Talk-Motorola-Moto-g-2025-5G-64GB-Blue-Prepaid-Smartphone-Locked-to-Straight-Talk/14552506783) or use any old Android 8+ phone you have lying around.
 
 Here are some things to note if you try this:
 
@@ -30,5 +30,9 @@ export TEMP="$TMPDIR"
   8. After that do a `source .bashrc` and run `openclaw gateway` again and it should work.
   9. Next, you can do `openclaw onboard` and add your model token for whichever model you choose. I recommend using `tmux` and running the gateway in a tmux session as a way to keep track of it and keep it alive.
   10. Set the `gateway.bind` property to `lan` so that the Gateway can run as 0.0.0.0 that way you can hit the Dashboard from the phone's IP address on your local WiFi network.
+  11. You probably want to tell OpenClaw it is living inside a termux app on a Android smartphone and that Termux:API and Termux:GUI are installed so it can utilize those things if it needs to for a particular task.
 
 
+
+
+* You can also give OpenClaw the ability to write arbitrary things overlayed on top of the screen. Install Termux:GUI app and `pkg install termux-gui` inside termux and then run the `overlay_daemon.py` in a new window of the `tmux` session you have open and then instruct OpenClaw that it can use that daemon to write stuff to the screen for the user to see when needed.
