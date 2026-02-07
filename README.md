@@ -8,6 +8,7 @@ You can get the moto g 2025 perepaid smartphone in the US for $30 on [Walmart.co
 Here are some things to note if you try this:
 
 
+0. Make sure you have the termux app installed. I would install `tmux`, a text editor like `nvim`, `nodejs-lts`, `python`. Also install the Termux:API and Termux:GUI apps and give everything full permissions so that OpenClaw will have full access to all the hardware if you want to use it for phone hardware tasks.
 1. Install using the `npm install -g openclaw@latest` option and not the bash script they have as it will fail on Android.
 2. During the installation it may fail the first few times on some dependencies, install those separately using `pkg` on termux and then start the installation again.
 3. `llama.cpp` ships with it and because termux lacks glibc it will have to compile this from scratch which takes 15-30 minutes, just let it run.
